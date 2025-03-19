@@ -1,0 +1,18 @@
+[Unit]
+Description=Clash Proxy Provider Bridge
+After=network.target
+
+[Service]
+Type=simple
+User=cpb
+# 工作目录，根据需要设置
+ExecStart=/usr/bin/clash-provider-bridge -c /etc/clash-provider-bridge/config.cpb
+Restart=always
+RestartSec=5s
+# 标准日志输出到 syslog
+#StandardOutput=syslog
+#StandardError=syslog
+#SyslogIdentifier=clash_provider_bridge
+
+[Install]
+WantedBy=multi-user.target
